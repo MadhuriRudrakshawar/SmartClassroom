@@ -2,7 +2,7 @@ import java.io.IOException;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import user.UserService;
+import services.SCService1;;
 
 public class GRPCServer{
 	
@@ -10,7 +10,7 @@ public class GRPCServer{
 	
 		
 		Server server = ServerBuilder.forPort(9090).addService
-				(new UserService()).build();
+				(new SCService1()).build();
 		
 		server.start();
 		
