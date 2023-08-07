@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.smartclassroom.service2";
+
+// Service 2: Assignment Submission
+service AssignmentSubmission {
+  rpc AssignmentDetail(DetailRequest) returns (DetailResponse) {}   // unary
+  rpc AssignmentSubmission(stream SubmitRequest) returns (SubmitResponse) {}    // client streaming
+  rpc AssignmentReminder(stream ReminderRequest) returns (stream ReminderResponse) {}   // bidirectional streaming
+
+}
+message DetailRequest {
+  string subjectName = 1;
+}
+
+message DetailResponse {
+  string assignmentNo = 1;
+  string assignmentDetails = 2;
+  string dueDate = 3;
+}
+
+message SubmitRequest {
+  string subjectName = 1;
+  string assignment = 2;
+  string attachment = 3;
+  string currentDate = 4;
+}
+
+message SubmitResponse {
+  repeated string status = 1;
+}
+
+message ReminderRequest {
+  string subject = 1;
+}
+
+message ReminderResponse {
+  string reminder = 1;
+}
