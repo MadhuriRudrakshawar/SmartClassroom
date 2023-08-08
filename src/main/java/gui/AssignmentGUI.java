@@ -19,7 +19,7 @@ import java.util.List;
 public class AssignmentGUI extends JFrame {
 
     private static final String SERVICE_TYPE = "_grpc._tcp.local.";
-    private static final String SERVICE_NAME = "Assignment";
+    private static final String SERVICE_NAME = "AssignmentSubmission";
 
     private final JTextField subjectNameField;
     private final JTextField assignmentField;

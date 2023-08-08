@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.smartclassroom.service3";
+
+
+service PodiumControl {
+
+  rpc PodiumLogin(LoginRequest)returns(LoginResponse) {}   // unary
+  rpc ProjectorIntegration(ProjectorRequest)returns(ProjectorResponse) {}   // unary
+  rpc IOInterface(stream IODeviceRequest)returns(stream IODeviceResponse) {}   // bidirectional
+}
+
+message LoginRequest{
+  string teacherID = 1;
+  string passCode = 2;
+}
+
+message LoginResponse {
+  string message = 1;
+}
+
+message ProjectorRequest {
+  string projectorId = 1;
+  string accessPin = 2;
+}
+
+message ProjectorResponse {
+  string status = 1;
+}
+
+message IODeviceRequest {
+  string deviceName = 1;
+}
+
+message IODeviceResponse {
+  string deviceStatus = 1;
+}
